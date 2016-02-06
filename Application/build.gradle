@@ -30,6 +30,12 @@ dependencies {
 
     //RecyclerFastScroller
     compile 'xyz.danoz:recyclerviewfastscroller:0.1.3'
+
+    //LoopJ Async HTTP Library
+    compile 'com.loopj.android:android-async-http:1.4.9'
+
+    //Floating Action Button
+    compile 'com.melnykov:floatingactionbutton:1.3.0'
 }
 
 // The sample build uses multiple directories to

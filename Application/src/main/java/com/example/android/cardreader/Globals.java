@@ -10,6 +10,9 @@ import java.util.Random;
  * Created by dkukreja on 1/13/16.
  */
 public class Globals {
+
+    public static String start = "http://ecba8da5.ngrok.io/";
+
     public static ArrayList<String> trustedIds = new ArrayList<String>() {{
         add("-16-122-8940");
         add("-101103-27-45");
@@ -23,6 +26,8 @@ public class Globals {
     public static ArrayList<User> allUsers = new ArrayList<User>();
     public static ArrayList<User> checkedIn = new ArrayList<User>();
     public static ArrayList<User> pending = new ArrayList<User>();
+
+    public static boolean adding = false;
 
     public static void executeEden(){
         Random random = new Random();

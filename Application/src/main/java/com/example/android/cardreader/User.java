@@ -9,6 +9,8 @@ public class User {
     public String name = "";
     public Date checkinTime = null;
     public String rfid = "";
+    public String id = "";
+    public String andrewID = "";
     public enum Status {CheckedIn, Pending}
 
     public User(String name) {

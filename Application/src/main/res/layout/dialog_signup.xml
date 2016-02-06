@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#f9f9f9">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Register Attendee"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/andrewIdField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter andrewID"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textColor="#333333"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:indeterminate="true"
+            android:layout_marginTop="15dp"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"/>
+        <TextView
+            android:id="@+id/name"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kyle Anderson"
+            android:textSize="17sp"
+            android:layout_centerInParent="true"
+            android:visibility="invisible"
+            android:textColor="@color/blue"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/scan_view"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tap Card to Register"
+        android:textSize="17sp"
+        android:visibility="invisible"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"/>
+
+
+</LinearLayout>

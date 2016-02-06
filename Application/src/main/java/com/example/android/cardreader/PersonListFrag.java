@@ -97,7 +97,10 @@ public class PersonListFrag extends Fragment {
             v.findViewById(R.id.indicator).setBackgroundColor(getResources().getColor(R.color.gray));
             timeView.setText("");
             if (cur.checkinTime != null) {
-                timeView.setText("" + cur.checkinTime.getHours() + ":" + cur.checkinTime.getMinutes());
+                String minuteString = ""+cur.checkinTime.getMinutes();
+                if (minuteString.length() == 1)
+                    minuteString = "0"+minuteString;
+                timeView.setText("" + cur.checkinTime.getHours() + ":" + minuteString);
                 v.findViewById(R.id.indicator).setBackgroundColor(getResources().getColor(R.color.blue));
             }
 
