@@ -31,6 +31,9 @@ public class Globals {
             String l = last.get(random.nextInt(last.size()));
             User u = new User(f+" "+l);
             allUsers.add(u);
+            if (i%10 == 0){
+                u.rfid="-16-122-8940";
+            }
             if (i%20 == 0){
                 u.checkinTime = new Date();
                 checkedIn.add(u);

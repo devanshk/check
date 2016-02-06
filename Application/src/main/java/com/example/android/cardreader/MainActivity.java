@@ -28,7 +28,10 @@ import android.speech.RecognizerIntent;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.example.android.common.logger.Log;
 
 import java.util.ArrayList;
@@ -53,20 +56,46 @@ public class MainActivity extends Activity implements ActionBar.TabListener, Loy
     ViewPager mViewPager;
     FragmentAdapter mAdapter;
     public static ArrayList<PersonListFrag> frags = new ArrayList<PersonListFrag>();
+    public static RequestQueue queue;
 
     public static void processId(String id){
-        Random random = new Random();
-        User u = Globals.pending.remove(random.nextInt(Globals.pending.size()));
-        u.checkinTime = new Date();
-        Globals.checkedIn.add(u);
         instance.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                for(PersonListFrag f : MainActivity.frags){
-                    f.mAdapter.notifyDataSetChanged();
+                boolean found = false;
+                for (User u : Globals.allUsers){
+                    if (u.rfid.equals(u.rfid)){
+                        found = true;
+                        if (u.checkinTime == null){
+                            u.checkinTime = new Date();
+                            Globals.pending.remove(u);
+                            Globals.checkedIn.add(u);
+                            for (PersonListFrag f : MainActivity.frags)
+                                f.mAdapter.notifyDataSetChanged();
+                        }
+                        else{
+                            Toast.makeText(instance,""+u.name+" already checked in.",Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    }
                 }
+                if (!found)
+                    Toast.makeText(instance,"User not registered.",Toast.LENGTH_SHORT).show();
             }
         });
+
+//        Random random = new Random();
+//        User u = Globals.pending.remove(random.nextInt(Globals.pending.size()));
+//        u.checkinTime = new Date();
+//        Globals.checkedIn.add(u);
+//        instance.runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for(PersonListFrag f : MainActivity.frags){
+//                    f.mAdapter.notifyDataSetChanged();
+//                }
+//            }
+//        });
     }
 
     //TODO

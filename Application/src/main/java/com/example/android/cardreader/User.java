@@ -8,6 +8,7 @@ import java.util.Date;
 public class User {
     public String name = "";
     public Date checkinTime = null;
+    public String rfid = "";
     public enum Status {CheckedIn, Pending}
 
     public User(String name) {
